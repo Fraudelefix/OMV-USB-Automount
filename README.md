@@ -1,9 +1,9 @@
 # OMV-USB-Automount
-Automount of USB storage device on OMV-powered NAS
-
+Automount of USB storage device on OMV-powered NAS.
+Built with ChatGPT-4.1
 Originally shared here : https://github.com/openmediavault/openmediavault/issues/1913
 
-# Step-bystep
+# Step-by- step
 
 **A. Create a script for the automatic mounting of USB storage devices to the /media/usbdevices/ directory upon connection**
 
