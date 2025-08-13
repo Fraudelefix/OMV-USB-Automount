@@ -1,8 +1,8 @@
 # OMV-USB-Automount
-Automount of USB storage device on OMV-powered NAS.
-Built with ChatGPT-4.1.
+Automount of USB storage device on OMV-powered NAS. USB ounted this way are invisible to OMV’s WebUI.
+For a deeper integration with OMV, I might consider writing a plugin later on.
 
-Originally shared here : https://github.com/openmediavault/openmediavault/issues/1913
+Built with ChatGPT-4.1. Originally shared here : https://github.com/openmediavault/openmediavault/issues/1913
 
 # Step-by- step
 
