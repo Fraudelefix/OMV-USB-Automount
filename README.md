@@ -1,11 +1,12 @@
 # OMV-USB-Automount
 Automount of USB storage device on OMV-powered NAS.
-Built with ChatGPT-4.1
+Built with ChatGPT-4.1.
+
 Originally shared here : https://github.com/openmediavault/openmediavault/issues/1913
 
 # Step-by- step
 
-**A. Create a script for the automatic mounting of USB storage devices to the /media/usbdevices/ directory upon connection**
+### 1) Create a script for the automatic mounting of USB storage devices to the /media/usbdevices/ directory upon connection
 
 `sudo nano /usr/local/bin/mount_usb.sh
 `
@@ -57,7 +58,7 @@ fi
 mount_usb "$1"
 ```
 
-**B. Create a script for the automatic unmounting of USB storage devices**
+### 2) Create a script for the automatic unmounting of USB storage devices
 
 `sudo nano /usr/local/bin/unmount_usb.sh
 `
@@ -100,7 +101,7 @@ unmount_usb "$1"
 ```
 
 
-**C. Make both scripts executable**
+### 3) Make both scripts executable
 
 `sudo chmod +x /usr/local/bin/mount_usb.sh
 `
@@ -108,14 +109,14 @@ unmount_usb "$1"
 `
 
 
-III. Create a udev rule to call the mounting and unmounting scripts when the USB drive is manually plugged in or unplugged
+### 4) Create a udev rule to call the mounting and unmounting scripts when the USB drive is manually plugged in or unplugged
 
 ```
 ACTION=="add", SUBSYSTEM=="block", KERNEL=="sd[a-z][0-9]", ENV{ID_BUS}=="usb", RUN+="/bin/bash -c 'sleep 2; /usr/local/bin/mount_usb.sh \"/dev/%k\" &'"
 ACTION=="remove", SUBSYSTEM=="block", KERNEL=="sd[a-z][0-9]", ENV{ID_BUS}=="usb", RUN+="/bin/bash -c '/usr/local/bin/unmount_usb.sh \"/dev/%k\" &'"
 ```
 
-**D. Load the udev rules**
+### 5) Load the udev rules
 
 `sudo udevadm control --reload-rules
 `
